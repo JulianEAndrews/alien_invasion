@@ -1,19 +1,5 @@
 # Let's try building a game!
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-
-'''
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-'''
-
 '''
 Game description:
 In Alien Invasion, the player controls a rocket ship that appears at the bottom center of the screen.
@@ -46,19 +32,34 @@ class AlienInvasion:
     def run_game(self):
         '''Start the main loop for the game.'''
         while True:
-            # Watch for keyboard and mouse events.
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    sys.exit()
+            self._check_events()
+            self.ship.update()
+            self._update_screen()
 
-            # Redraw the screen during each pass through the loop.
+    def _check_events(self):
+        '''Respond to keypresses and mouse events.'''
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RIGHT:
+                    self.ship.moving_right = True
+                if event.key == pygame.K_LEFT:
+                    self.ship.moving_left = True
+            elif event.type == pygame.KEYUP:
+                if event.key == pygame.K_RIGHT:
+                    self.ship.moving_right = False
+                if event.key == pygame.K_LEFT:
+                    self.ship.moving_left = False
 
-            self.screen.fill(self.settings.bg_color) #To use bg color
-            self.screen.blit(self.settings.bg_image, [0,0]) # To use bg image
-            self.ship.blitme()
+    def _update_screen(self):
+        '''Update images on the screen, and flip to the new screen.'''
+        self.screen.fill(self.settings.bg_color) #To use bg color
+        self.screen.blit(self.settings.bg_image, [0,0]) # To use bg image
+        self.ship.blitme()
 
-            # Make the most recently drawn screen visible
-            pygame.display.flip()
+        # Make the most recently drawn screen visible
+        pygame.display.flip()
 
 if __name__ == '__main__':
     # Make a game instance, and run the game
