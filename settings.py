@@ -16,7 +16,7 @@ class Settings:
         self.ship_speed = 1.5
 
         # Bullet settings
-        self.bullet_speed = 1.0
+        self.bullet_speed = 1.5
         # Game setting: 3; Test setting: 300; CRT Refresh mode: 3000
         self.bullet_width = 3
         self.bullet_height = 15
