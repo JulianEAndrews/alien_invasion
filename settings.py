@@ -17,7 +17,8 @@ class Settings:
 
         # Bullet settings
         self.bullet_speed = 1.0
-        self.bullet_width = 3
+        # Game setting: 3; Test setting: 300
+        self.bullet_width = 3000
         self.bullet_height = 15
         self.bullet_color = (255, 95, 31) # Neon orange
         self.bullets_allowed = 3
