@@ -31,6 +31,9 @@ class Settings:
 
         # Alien settings
         self.alien_speed = 1.0
-        self.fleet_drop_speed = 100 # Change back to 10 for regular gameplay
+        self.fleet_drop_speed = 10 # Change back to 10 for regular gameplay
         # Fleet direction of 1 represents right; -1 represents left.
         self.fleet_direction = 1
+
+        # Keymap settings
+        self.directions = {'left': (pygame.K_LEFT, pygame.K_a), 'right': (pygame.K_RIGHT, pygame.K_d)}
