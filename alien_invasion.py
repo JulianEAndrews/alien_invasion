@@ -103,7 +103,8 @@ class AlienInvasion:
 
     def _check_keydown_events(self, event):
         '''Respond to keypresses.'''
-        if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
+        #if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
+        if event.key in self.settings.directions['right']:
             self.ship.moving_right = True
         #if event.key == pygame.K_LEFT or event.key == pygame.K_a:
         #    self.ship.moving_left = True
@@ -123,6 +124,18 @@ class AlienInvasion:
         elif event.key == pygame.K_p:
             if not self.stats.game_active:
                 self._start_game()
+
+        """
+        elif event.key in self.settings.game_controls['quit']:
+            sys.exit()
+        elif event.key in self.settings.game_controls['reset']:
+            self._start_game()
+        elif event.key in self.settings.ship_weapons['fire_bullet']:
+            self._fire_bullet()
+        elif event.key in self.settings.game_controls['play']:
+            if not self.stats.game_active:
+                self._start_game()
+                """
 
     def _check_keyup_events(self, event):
         if event.key == pygame.K_RIGHT or event.key == pygame.K_d:

@@ -36,4 +36,15 @@ class Settings:
         self.fleet_direction = 1
 
         # Keymap settings
-        self.directions = {'left': (pygame.K_LEFT, pygame.K_a), 'right': (pygame.K_RIGHT, pygame.K_d)}
+        self.directions = {
+            'left': (pygame.K_LEFT, pygame.K_a),
+            'right': (pygame.K_RIGHT, pygame.K_d)
+        }
+        self.game_controls = {
+            'quit': pygame.K_q,
+            'play': pygame.K_p,
+            'reset': pygame.K_r
+        }
+        self.ship_weapons = {
+            'fire_bullet': (pygame.K_SPACE)
+        }
